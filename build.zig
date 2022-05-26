@@ -93,12 +93,12 @@ pub fn glLibrary(exe: *std.build.LibExeObjStep) *std.build.LibExeObjStep {
         gl.linkSystemLibrary("opengl32");
     }
     if (target.isLinux()) {
-        gl.linkSystemLibrary("gl");
+        gl.linkSystemLibrary("GL");
     }
-    if(target.isDarwin()) {
+    if (target.isDarwin()) {
         // !! Mac TODO
         // Here we need to add the include the system libs needed for mac opengl
-        // Maybe also 
+        // Maybe also
     }
 
     // Include dirs.
@@ -132,7 +132,7 @@ pub fn imguiLibrary(exe: *std.build.LibExeObjStep) *std.build.LibExeObjStep {
         imgui.linkSystemLibrary("gdi32");
     }
 
-    if(target.isDarwin()) {
+    if (target.isDarwin()) {
         // !! Mac TODO
         // Here we need to add the include the system libs needed for mac imgui
     }
@@ -190,7 +190,7 @@ pub fn glfwLibrary(exe: *std.build.LibExeObjStep) *std.build.LibExeObjStep {
         glfw.addSystemIncludeDir("/usr/include/");
         glfw.linkSystemLibrary("rt");
         glfw.linkSystemLibrary("m");
-        glfw.linkSystemLibrary("x11");
+        glfw.linkSystemLibrary("X11");
 
         glfw.addCSourceFiles(&.{
             path ++ "src/dep/glfw/src/x11_init.c",
